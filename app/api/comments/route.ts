@@ -4,7 +4,7 @@ import prisma from "@/lib/prisma";
 export async function POST(req: Request) {
   try {
     const body = await req.json();
-    const { content, authorId, postId } = body;
+    const { content, authorId, postId, parentId } = body;
 
     if (!content || !authorId || !postId) {
       return NextResponse.json(
@@ -14,7 +14,12 @@ export async function POST(req: Request) {
     }
 
     const comment = await prisma.comment.create({
-      data: { content, authorId, postId },
+      data: {
+        content,
+        authorId,
+        postId,
+        parentId: parentId || null,
+      },
     });
 
     return NextResponse.json(
@@ -43,9 +48,18 @@ export async function GET(req: Request) {
 
   try {
     const comments = await prisma.comment.findMany({
-      where: { postId },
+      where: {
+        postId,
+        parentId: null,
+      },
       orderBy: { createdAt: "asc" },
-      include: { author: true },
+      include: {
+        author: true,
+        replies: {
+          include: { author: true, replies: true },
+          orderBy: { createdAt: "asc" },
+        },
+      },
     });
 
     return NextResponse.json(comments, { status: 200 });
