@@ -11,21 +11,23 @@ type Post = {
     email: string;
   };
 };
+export default function feedpage(){
+    const [posts,setPosts]=useState<Post[]>([]);
+    const [content,setContent]=useState("");
 
-export default function FeedPage() {
-  const [posts, setPosts] = useState<Post[]>([]);
-  const [content, setContent] = useState("");
-
+}
   // Fetch posts initially
   useEffect(() => {
     fetchPosts();
   }, []);
-
-  const fetchPosts = async () => {
-    const res = await fetch("/api/posts");
-    const data = await res.json();
+  
+ const fetchPosts = async()=>{
+    const res =await fetch("api/posts");
+    const data =await res.json();
     setPosts(data);
-  };
+ };
+
+ 
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
