@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
+import CommentsSection from "@/components/CommentsSection";
 
 type Post = {
   id: string;
@@ -11,23 +12,21 @@ type Post = {
     email: string;
   };
 };
-export default function feedpage(){
-    const [posts,setPosts]=useState<Post[]>([]);
-    const [content,setContent]=useState("");
 
-}
+export default function FeedPage() {
+  const [posts, setPosts] = useState<Post[]>([]);
+  const [content, setContent] = useState("");
+
   // Fetch posts initially
   useEffect(() => {
     fetchPosts();
   }, []);
-  
- const fetchPosts = async()=>{
-    const res =await fetch("api/posts");
-    const data =await res.json();
-    setPosts(data);
- };
 
- 
+  const fetchPosts = async () => {
+    const res = await fetch("/api/posts");
+    const data = await res.json();
+    setPosts(data);
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -37,7 +36,7 @@ export default function feedpage(){
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           content,
-          authorId: "HARDCODED_USER_ID", // yahan logged-in user ka id hona chahiye future me
+          authorId: "HARDCODED_USER_ID",
         }),
       });
       const data = await res.json();
@@ -79,6 +78,8 @@ export default function feedpage(){
               Posted by {post.author.name} on {new Date(post.createdAt).toLocaleString()}
             </p>
             <p className="mt-2">{post.content}</p>
+            {/* Comments for this post */}
+            <CommentsSection postId={post.id} />
           </div>
         ))
       )}
