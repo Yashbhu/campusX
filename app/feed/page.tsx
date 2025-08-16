@@ -17,7 +17,6 @@ export default function FeedPage() {
   const [posts, setPosts] = useState<Post[]>([]);
   const [content, setContent] = useState("");
 
-  // Fetch posts initially
   useEffect(() => {
     fetchPosts();
   }, []);
@@ -46,7 +45,7 @@ export default function FeedPage() {
       }
       alert("Post created!");
       setContent("");
-      fetchPosts(); // refresh posts list
+      fetchPosts();
     } catch (err) {
       console.error(err);
       alert("Server error. Try again.");
@@ -57,7 +56,7 @@ export default function FeedPage() {
     <div className="max-w-2xl mx-auto mt-10">
       <h1 className="text-3xl font-bold mb-6">College Feed</h1>
 
-      {/* Create Post Form */}
+   
       <form onSubmit={handleSubmit} className="flex flex-col gap-4 mb-8 border p-4 rounded">
         <textarea
           placeholder="What's on your mind?"
@@ -68,7 +67,7 @@ export default function FeedPage() {
         <button className="bg-blue-600 text-white py-2 rounded">Post</button>
       </form>
 
-      {/* Posts Feed */}
+    
       {posts.length === 0 ? (
         <p>No posts yet.</p>
       ) : (
@@ -78,7 +77,7 @@ export default function FeedPage() {
               Posted by {post.author.name} on {new Date(post.createdAt).toLocaleString()}
             </p>
             <p className="mt-2">{post.content}</p>
-            {/* Comments for this post */}
+        
             <CommentsSection postId={post.id} />
           </div>
         ))
