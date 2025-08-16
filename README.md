@@ -1,4 +1,4 @@
-# CampusConnect
+# CampusX
 
 ![Next.js](https://img.shields.io/badge/Next.js-14-black?logo=next.js)
 ![Node.js](https://img.shields.io/badge/Node.js-20.2.0-green?logo=node.js)
