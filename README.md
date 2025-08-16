@@ -1,36 +1,79 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# CampusConnect
 
-## Getting Started
+![React](https://img.shields.io/badge/React-18.2.0-blue?logo=react)
+![Node.js](https://img.shields.io/badge/Node.js-20.2.0-green?logo=node.js)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-15.5-blue?logo=postgresql)
+![TailwindCSS](https://img.shields.io/badge/TailwindCSS-3.3.3-blue?logo=tailwind-css)
+![Prisma](https://img.shields.io/badge/Prisma-4.15.0-blue)
+![WebRTC](https://img.shields.io/badge/WebRTC-real-time-purple)
 
-First, run the development server:
+CampusConnect is a **social media platform for college students** to engage, share, and collaborate on projects and ideas. Students can post updates, follow peers, chat, join groups, and schedule events, fostering a connected campus community.
 
+---
+
+## 📑 Table of Contents
+
+1. [Features](#features)
+2. [User Roles](#user-roles)
+3. [Tech Stack](#tech-stack)
+4. [Getting Started](#getting-started)
+5. [Setup & Installation](#setup--installation)
+6. [Screenshots](#screenshots)
+7. [Future Enhancements](#future-enhancements)
+8. [License](#license)
+
+---
+
+## ✅ Features
+
+- **Role-Based Users**: Students and Moderators (Admin-like features for groups).  
+- **Social Feed**: Post updates, like, comment, share.  
+- **Groups & Communities**: Join or create groups for projects or hobbies.  
+- **Real-Time Chat & Video Calls**: Powered by WebRTC.  
+- **Event Scheduling**: Create, RSVP, and integrate with Google Calendar.  
+- **Notifications & Alerts**: Stay updated on new posts, events, or messages.  
+- **Profile & Portfolio**: Showcase skills, projects, and achievements.  
+- **Search & Explore**: Find friends, groups, and trending posts.  
+- **Responsive Design**: Works on web and mobile devices.  
+
+---
+
+## 👥 User Roles
+
+### Student
+- Create and interact with posts.  
+- Join groups and events.  
+- Chat and video call with peers.  
+
+### Moderator / Admin
+- Manage group content and membership.  
+- Moderate posts and comments for community standards.  
+- Access analytics for engagement.  
+
+---
+
+## 🛠️ Tech Stack
+
+| Layer | Technology |
+|-------|------------|
+| Frontend | React, TailwindCSS |
+| Backend | Node.js, Express |
+| Database | PostgreSQL with Prisma ORM |
+| Realtime | WebRTC for chat & video |
+| Caching | Redis |
+| Authentication | JWT / OAuth |
+| Deployment | Vercel / Heroku / Node.js server |
+
+---
+
+## ⚡ Getting Started
+
+### Prerequisites
+- Node.js >= 20  
+- PostgreSQL >= 15  
+- Redis (optional for caching)  
+
+### Clone the Repository
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+git clone <your-repo-url>
+cd campusconnect
