@@ -1,4 +1,4 @@
-# CampusConnect
+# CampusX
 
 ![React](https://img.shields.io/badge/React-18.2.0-blue?logo=react)
 ![Node.js](https://img.shields.io/badge/Node.js-20.2.0-green?logo=node.js)
