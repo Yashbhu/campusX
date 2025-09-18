@@ -12,7 +12,7 @@ export async function POST(req: Request) {
     const post = await prisma.post.create({
       data: {
         content,
-        imageUrl: null,  // abhi ke liye image skip kar rahe hain
+        imageUrl: null,  
         authorId:'cmcmhw6rw0000fgi0oiligt96',
       },
     });
@@ -28,7 +28,7 @@ export async function GET() {
   try {
     const posts = await prisma.post.findMany({
       orderBy: { createdAt: "desc" },
-      include: { author: true }, // user details bhi la rahe hain
+      include: { author: true }, 
     });
     return NextResponse.json(posts, { status: 200 });
   } catch (error) {
