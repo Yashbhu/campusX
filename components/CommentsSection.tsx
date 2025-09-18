@@ -10,7 +10,7 @@ type Comment = {
     name: string;
     email: string;
   };
-  replies?: Comment[]; // nested replies
+  replies?: Comment[]; 
 };
 
 export default function CommentsSection({ postId }: { postId: string }) {
@@ -41,7 +41,7 @@ export default function CommentsSection({ postId }: { postId: string }) {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           content: newComment.trim(),
-          authorId: "cmcmhw6rw0000fgi0oiligt96", // replace with logged-in user ID
+          authorId: "cmcmhw6rw0000fgi0oiligt96", 
           postId,
         }),
       });
@@ -67,9 +67,9 @@ export default function CommentsSection({ postId }: { postId: string }) {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           content: replyContent.trim(),
-          authorId: "cmcmhw6rw0000fgi0oiligt96", // replace with logged-in user ID
+          authorId: "cmcmhw6rw0000fgi0oiligt96", 
           postId,
-          parentId, // key for nested reply
+          parentId,
         }),
       });
       const data = await res.json();
@@ -88,7 +88,7 @@ export default function CommentsSection({ postId }: { postId: string }) {
     <div className="border-t mt-4 pt-4">
       <h3 className="font-semibold mb-2">Comments</h3>
 
-      {/* Add new top-level comment */}
+      
       <form onSubmit={handleAddComment} className="flex gap-2 mb-4">
         <input
           className="flex-1 border p-2 rounded"
@@ -162,7 +162,7 @@ function CommentItem({
         </div>
       )}
 
-      {/* Recursively render nested replies */}
+      
       {comment.replies && comment.replies.length > 0 && (
         <div className="mt-2">
           {comment.replies.map((reply) => (
